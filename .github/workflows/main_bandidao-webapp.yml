@@ -70,5 +70,6 @@ jobs:
         with:
           app-name: 'bandidao-webapp'
           slot-name: 'Production'
-          package: .
-          
+          package: release/dist
+          # package: . # Use this if you want to deploy the entire repository
+          # package: dist # Use this if you want to deploy only the dist folder
