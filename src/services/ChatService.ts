@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const apiKey = import.meta.env.VITE_AZURE_OPENAI_KEY;
-const azureOpenAIUrl = import.meta.env.VITE_AZURE_OPENAI_ENDPOINT;
+// const azureOpenAIUrl = import.meta.env.VITE_AZURE_OPENAI_ENDPOINT;
 
 export interface ChatMessage {
   role: 'system' | 'user' | 'assistant';
@@ -11,7 +11,7 @@ export interface ChatMessage {
 export async function getChatCompletion(messages: ChatMessage[]) {
   try {
     const response = await axios.post(
-      azureOpenAIUrl,
+      '/api/Chat',
       {
         messages,
         temperature: 0.7,
@@ -19,12 +19,14 @@ export async function getChatCompletion(messages: ChatMessage[]) {
       {
         headers: {
           'Content-Type': 'application/json',
-          'api-key': apiKey,
+          'Authorization': 'Bearer ' + apiKey,
         },
       }
     );
 
-    return response.data.choices[0].message.content.trim();
+    console.log('Azure OpenAI response:', response.data.messages[0].content);
+
+    return response.data.messages[0].content || 'No response from AI';
   } catch (error) {
     console.error('Azure OpenAI error:', error);
     return 'Something went wrong.';

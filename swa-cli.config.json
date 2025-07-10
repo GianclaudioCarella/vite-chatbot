@@ -1,0 +1,11 @@
+{
+  "configurations": {
+    "app": {
+      "appLocation": "/",
+      "apiLocation": "",
+      "outputLocation": "",
+      "run": "vite",
+      "appDevserverUrl": "http://localhost:5173"
+    }
+  }
+}
