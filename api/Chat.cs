@@ -27,7 +27,7 @@ namespace Api
 
     public static class Chat
     {
-        [FunctionName("Chat")]
+        [FunctionName("chat")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)] HttpRequest req,
             ILogger log)

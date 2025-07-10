@@ -11,7 +11,7 @@ export interface ChatMessage {
 export async function getChatCompletion(messages: ChatMessage[]) {
   try {
     const response = await axios.post(
-      '/api/Chat',
+      '/api/chat',
       {
         messages,
         temperature: 0.7,
@@ -29,6 +29,6 @@ export async function getChatCompletion(messages: ChatMessage[]) {
     return response.data.messages[0].content || 'No response from AI';
   } catch (error) {
     console.error('Azure OpenAI error:', error);
-    return error;
+    return "Something went wrong.";
   }
 }
