@@ -11,7 +11,6 @@
   },
   "dependencies": {
     "@azure/functions": "^4.7.3-beta.0",
-    "@azure/identity": "latest",
     "@azure/openai": "^2.0.0",
     "axios": "^1.10.0",
     "openai": "latest",
