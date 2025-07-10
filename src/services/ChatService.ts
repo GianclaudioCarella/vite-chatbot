@@ -29,6 +29,6 @@ export async function getChatCompletion(messages: ChatMessage[]) {
     return response.data.messages[0].content || 'No response from AI';
   } catch (error) {
     console.error('Azure OpenAI error:', error);
-    return 'Something went wrong.';
+    return error;
   }
 }
